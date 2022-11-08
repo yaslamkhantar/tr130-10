@@ -7,6 +7,9 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,4 +22,7 @@ public class Enseignant {
     private String prenom;
     private String sexe;
     private String matiere;
+
+    @OneToMany(targetEntity = Courses.class,mappedBy = "enseignant")
+    private List<Courses> cours=new ArrayList<>();
 }
